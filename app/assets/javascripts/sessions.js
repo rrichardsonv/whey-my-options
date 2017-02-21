@@ -15,10 +15,12 @@ loginRegisterListener = function(){
        data: formdata
       })
       .done(function(response) {
-        console.log("woot");
+        console.log("woot",response);
+
       })
       .fail(function(error){
         console.error("Error: " + error);// + "\nWith status: " + status);
+        debugger
       });
     } else {
       $.ajax({
@@ -27,10 +29,12 @@ loginRegisterListener = function(){
         data: formdata
       })
       .done(function(response) {
-        console.log("woot");
+        console.log("woot",response);
       })
       .fail(function(error){
-        console.error("Error: " + error); //+ "\nWith status: " + status);
+        console.error("Error: " + error);
+        debugger
+         //+ "\nWith status: " + status);
       });
     }
 
