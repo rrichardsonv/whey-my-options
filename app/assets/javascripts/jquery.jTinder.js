@@ -7,7 +7,6 @@
  * Licensed under GPL Version 2.
  * https://github.com/do-web/jTinder/blob/master/LICENSE
  */
- getNearRestaurants();
 
 ;(function ($, window, document, undefined) {
 	var pluginName = "jTinder",

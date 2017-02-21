@@ -1,45 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>WayToEat</title>
+
+<head>
     <%= csrf_meta_tags %>
 
+
+
+
+
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <title>WayToEat</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"
+      integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+      crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <!--
-  normalize.css removes cross-browser differences in defaults, e.g.,
-  differences in how form elements appear between Firefox and IE
-  See: http://necolas.github.com/normalize.css/
--->
-<link rel="stylesheet" href="/css/normalize.css">
-<!--
-application.css is where you put your styles
--->
-<link rel="stylesheet" href="/css/jquery.mobile-1.4.5.css">
-<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-<script src="https://code.jquery.com/jquery-3.1.1.js"
-  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
-  crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-<link rel="stylesheet" href="/css/application.css">
-
-<link rel="stylesheet" type="text/css" href="css/jTinder.css">
-<script src="/js/geolocation.js"></script>
-<script src="/js/application.js"></script>
-
-<title></title>
-<script type="text/javascript" src="/js/jquery.transform2d.js"></script>
-    <!-- jTinder lib -->
-<script type="text/javascript" src="/js/jquery.jTinder.js"></script>
-    <!-- jTinder initialization script -->
-<script type="text/javascript" src="/js/main.js"></script>
-
+        <!-- jTinder initialization script -->
+<!--     <script type="text/javascript" src="/js/main.js"></script> -->
 </head>
     <!-- transform2d lib -->
 
@@ -51,7 +35,7 @@ application.css is where you put your styles
     
   <%= yield %>
 
-    <div data-role="footer">
+    <div id="navbar-container" data-role="footer">
       <% if logged_in? %>
       <div data-role="navbar" id="navbar-id">
           <ul>
