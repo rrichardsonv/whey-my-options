@@ -1,0 +1,38 @@
+* {
+  font-family: 'Patua One', cursive;
+  background-color: white !important;
+}
+
+.ui-page .ui-header {
+    background: white !important;
+}
+
+#title {
+  font-size: 65px !important;
+  text-align: center;
+}
+
+#restaraunt-image {
+ width: 75%;
+}
+
+#left, #right {
+  display: inline-block;
+  font-size: 70px;
+}
+
+#left {
+  float: left;
+}
+
+#right {
+  float: right;
+}
+
+.login-register {
+  margin-top: 70px;
+}
+
+input {
+    text-align: center !important; 
+}

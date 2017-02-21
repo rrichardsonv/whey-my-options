@@ -10,7 +10,32 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require turbolinks
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require jquery.mobile-1.4.5
 //= require_tree .
+//= require jquery.jTinder
+//= require jquery.transform2d
+
+$(document).ready(function() {
+  loginRegisterListener();
+  logoutListener();
+  refillRestaurantsListener();
+
+});
+
+
+
+logoutListener = function(){
+  $("#navbar-container").on("submit", "#logout-button", function(e) {
+    e.preventDefault();
+    $.ajax({
+      method: 'delete',
+      url: '/sessions'
+    })
+    .done(function() {
+      window.location = "http://localhost:9393/";
+    });
+  })
+};
