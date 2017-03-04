@@ -5,12 +5,21 @@
     <div class="wrap">
         <!-- start jtinder container -->
         <div id="tinderslide">
-          <% if @restaurants %>
-            <ul>
-            <%@restaurants.each do |restaurant| %>
-              <%= render partial: 'pane', locals:{restaurant: restaurant} ,layout: false  %>
-            <% end %>
-            </ul>
+          <ul>
+            <li>
+              <li id="pane-placeholder">
+                <div class="refill-wrapper">
+                  <button id="refill-button">
+                    Refill Eats!
+                  </button>
+                </div>
+              </li>
+            </li>
+            <% if @restaurants %>
+              <%@restaurants.each do |restaurant| %>
+                <%= render partial: 'pane', locals:{restaurant: restaurant} ,layout: false  %>
+              <% end %>
+          </ul>
           <% end %>
         </div>
         <!-- end jtinder container -->
