@@ -8,6 +8,7 @@
           <% if @restaurants %>
             <ul>
             <%@restaurants.each do |restaurant| %>
+              <%= render partial: 'pane', locals:{restaurant: restaurant} ,layout: false  %>
             <% end %>
             </ul>
           <% end %>
@@ -30,15 +31,15 @@
     <div data-role="navbar" id="navbar-id">
         <ul>
           <li>
-          <%= link_to "Favorites", user_favorites_path(@current_user) %>
+          <%= button_to "Favorites", user_favorites_path(@current_user) %>
           </li>
 
           <li>
-          <%= link_to "Home", restaurants_path %>
+          <%= button_to "Home", restaurants_path %>
           </li>
 
           <li> 
-          <%= link_to 'Logout', { action: :destroy, id: @current_user.id, controller: :sessions }, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= button_to 'Destroy', { controller: :sessions, action: :destroy, id: @current_user.id }, method: :delete, data: { confirm: 'Are you sure?' } %>
           </li>
 
 
