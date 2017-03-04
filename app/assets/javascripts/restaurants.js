@@ -1,15 +1,20 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 var refillRestaurantsListener = function(){
-  $("#page1").on("click","#refill-button", function(){
+  $(document).on('click', '#refill-button',function(){
     getNearbyRestaurants();
   });
 };
 
 var getNearbyRestaurants = function(){
-  var nearbyRestaurantPanes = handlePosition();
-  $("#tinderslide ul").append(nearbyRestaurantPanes);
+  var nearbyRestaurantPanes;
+  handlePosition();
+
 };
+
+var appendRestaurantPanes = function(htmlResponse){
+  $("#tinderslide ul").append(htmlResponse);
+}
 
 var handlePosition = function(){
   if (navigator.geolocation) {
@@ -20,18 +25,32 @@ var handlePosition = function(){
 };
 
 function sendPosition(position) {
-    var geoData = position.coords;
+    var geoData = {
+      coords: {
+        lat: position.coords.latitude,
+        long: position.coords.longitude
+      }
+    }
+
     $.ajax({
         url: '/restaurants',
         type: 'GET',
         data: geoData,
+
+        success: function(response) {
+          console.log('Success!')
+          appendRestaurantPanes(response);
+          },
+        error: function() {
+          $('#notification-bar').text('An error occurred');
+          }
     })
-      .done(function(response) {
-        return response;
-    })
-      .error(function(error){
-        console.error("Error: ", error)
-    });      
+    //   .success(function(response) {
+        
+    // })
+    //   .error(function(error){
+    //     console.error("Error: ", error)
+    // });      
 };
 
 function noPosition(error) {
