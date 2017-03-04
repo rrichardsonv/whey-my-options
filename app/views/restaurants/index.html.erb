@@ -40,7 +40,7 @@
     <div data-role="navbar" id="navbar-id">
         <ul>
           <li>
-          <%= button_to "Favorites", user_favorites_path(@current_user) %>
+          <%= button_to "Favorites",user_favorites_path(@current_user), method: :get %>
           </li>
 
           <li>
