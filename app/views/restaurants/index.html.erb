@@ -1,2 +1,48 @@
-<h1>Restaurants#index</h1>
-<p>Find me in app/views/restaurants/index.html.erb</p>
+
+<!-- <script>$("#tinderslide").jTinder();</script> -->
+  <div data-role="main" class="ui-content">
+    <!-- start padding container -->
+    <div class="wrap">
+        <!-- start jtinder container -->
+        <div id="tinderslide">
+          <% if @restaurants %>
+            <ul>
+            <%@restaurants.each do |restaurant| %>
+            <% end %>
+            </ul>
+          <% end %>
+        </div>
+        <!-- end jtinder container -->
+    </div>
+    <!-- end padding container -->
+
+    <!-- jTinder trigger by buttons  -->
+    <div class="actions">
+        <a href="#" class="dislike"><i></i></a>
+        <a href="#" class="like"><i></i></a>
+    </div>
+
+    <!-- jTinder status text  -->
+    <div id="status"></div>
+  </div>
+<div id="navbar-container" data-role="footer">
+  <% if logged_in? %>
+    <div data-role="navbar" id="navbar-id">
+        <ul>
+          <li>
+          <%= link_to "Favorites", user_favorites_path(@current_user) %>
+          </li>
+
+          <li>
+          <%= link_to "Home", restaurants_path %>
+          </li>
+
+          <li> 
+          <%= link_to 'Logout', { action: :destroy, id: @current_user.id, controller: :sessions }, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </li>
+
+
+        </ul>
+      </div><!-- /navbar -->
+    <% end %>
+</div>
