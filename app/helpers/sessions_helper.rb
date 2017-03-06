@@ -9,6 +9,12 @@ module SessionsHelper
   end
 
   def set_user(user)
-    session[:user_id] = user.id
+    @user = User.find_by(facebook_uuid: login_deetz)
+    if !!@user
+      session[:user_id] = @user.id
+    else
+      @user = User.create(facebook_uuid: login_deetz)
+      session[:user_id] = @user.id
+    end
   end
 end
