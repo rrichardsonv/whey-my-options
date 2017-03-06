@@ -19,8 +19,9 @@
 //= require jquery.transform2d
 
 $(document).ready(function() {
-  loginRegisterListener();
-  logoutListener();
+  facebookSetup();
+  // loginRegisterListener();
+  // logoutListener();
   refillRestaurantsListener();
 
 });

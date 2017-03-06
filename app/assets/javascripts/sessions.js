@@ -1,42 +1,35 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
-loginRegisterListener = function(){
-  $(".login-register").on("submit", "form" ,function(e) {
-    e.preventDefault();
-    var form = $(this)
-    var formdata = $(this).serialize();
-    var btn = $(this).find("input[type=submit]:focus" );
 
-    if(btn.attr("id") == "login-submit") {
-      console.log('login')
-      $.ajax({
-       method: 'post',
-       url: '/sessions',
-       data: formdata
-      })
-      .done(function(response) {
-        console.log("woot",response);
+var facebookSetup = function(){
+  $.ajaxSetup({ cache: true });
+    $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
+      FB.init({
+        appId: '1929445010619471',
+        version: 'v2.7'
+      });     
+      $('#loginbutton, #feedbutton').removeAttr('disabled');
+      FB.getLoginStatus(updateStatusCallback);
+  });
+};
 
-      })
-      .fail(function(error){
-        console.error("Error: " + error);// + "\nWith status: " + status);
-        debugger
-      });
-    } else {
-      $.ajax({
-        method: 'post',
-        url: '/users',
-        data: formdata
-      })
-      .done(function(response) {
-        console.log("woot",response);
-      })
-      .fail(function(error){
-        console.error("Error: " + error);
-        debugger
-         //+ "\nWith status: " + status);
-      });
-    }
+var updateStatusCallback = function(){
+  var uID = FB.getUserID();
+  if(uID != undefined){
+    var url    =  '/sessions' + "?&authenticity_token=" + encodeURIComponent(RAILS_AUTH_TOKEN);
 
-  })
+    var method =  'POST';
+
+    $.ajax({
+      url: url,
+      type: method,
+      data: {id: uID},
+      success: function() {
+        console.log('Success!')
+        },
+      error: function() {
+        console.log('Error!');
+      }
+    })
+  }
 };
