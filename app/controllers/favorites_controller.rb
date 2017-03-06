@@ -1,6 +1,8 @@
 class FavoritesController < ApplicationController
+  include SessionsHelper
+
   def index
-    @favorites = current_user.favorites
+    @favorites = current_user.favorite_restaurants
   end
 
   def create
