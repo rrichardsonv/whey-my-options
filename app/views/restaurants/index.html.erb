@@ -19,8 +19,10 @@
 
     <!-- jTinder trigger by buttons  -->
     <div class="actions">
-        <a href="#" class="dislike"><i></i></a>
-        <a href="#" class="like"><i></i></a>
+    <!-- temp button to see if favorite routes/controller renders -->
+        <%= link_to "Favorite", user_favorites_path(current_user), method: :post %>
+        <!-- <a href="#" class="dislike"><i></i></a>
+        <a href="#" class="like"><i></i></a> -->
     </div>
 
     <!-- jTinder status text  -->
