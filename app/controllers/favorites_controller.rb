@@ -1,8 +1,9 @@
 class FavoritesController < ApplicationController
   include SessionsHelper
+  skip_before_filter  :verify_authenticity_token
 
   def index
-    @favorites = current_user.favorite_restaurants
+    @favorite_restaurants = current_user.favorite_restaurants
   end
 
   def create
@@ -23,3 +24,4 @@ class FavoritesController < ApplicationController
     params.require(:favorite).permit(:restaurant_id)
   end
 end
+

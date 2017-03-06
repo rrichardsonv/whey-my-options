@@ -46,7 +46,7 @@ rest_deetz = [
 {"name"=>"furious-spoon-wicker-park-chicago", "rating"=>4.0, "rating_count"=>759, "image_url"=>"https://s3-media4.fl.yelpcdn.com/bphoto/Gu8cjowwHNBSDqylGUI-3w/ms.jpg", "latitude"=>41.9099678099155, "longitude"=>-87.6766853034496, "address"=>"1571 N Milwaukee Ave, Wicker Park, Chicago, IL 60622"},
 {"name"=>"tryzub-ukrainian-kitchen-chicago", "rating"=>4.5, "rating_count"=>50, "image_url"=>"https://s3-media1.fl.yelpcdn.com/bphoto/4STkEp6VSIKDb6IO9STliA/ms.jpg", "latitude"=>41.8958059, "longitude"=>-87.6819438, "address"=>"2201 W Chicago Ave, Ukrainian Village, Chicago, IL 60622"},
 {"name"=>"bucks-chicken-and-biscuits-chicago", "rating"=>3.5, "rating_count"=>148, "image_url"=>"https://s3-media4.fl.yelpcdn.com/bphoto/CkFCqPNqMfSLHWzKtuBK_Q/ms.jpg", "latitude"=>41.9035720825195, "longitude"=>-87.6706161499023, "address"=>"1700 W Division St, Wicker Park, Chicago, IL 60622"},
-{"name"=>"whisk-chicago-2", "rating"=>4.0, "rating_count"=>580, "image_url"=>"https://s3-media4.fl.yelpcdn.com/bphoto/P81ZORu5B_ReE5DOxDBhGg/ms.jpg", "latitude"=>41.8961206, "longitude"=>-87.6778316, "address"=>"2018 W Chicago Ave, Ukrainian Village, Chicago, IL 60622"}
+{"name"=>"whisk-chicago-2", "rating"=>4.0, "rating_count"=>580, "image_url"=>"https://s3-media4.fl.yelpcdn.com/bphoto/P81ZORu5B_ReE5DOxDBhGg/ms.jpg", "latitude"=>41.8961206, "longitude"=>-87.6778316, "address"=>"2018 W Chicago Ave, Ukrainian Village, Chicago, IL 60622", "yelp_page_url"=>"https://m.yelp.com/biz/maison-parisienne-chicago?adjust_creative=4JjxTuQWmKL2b7bYQQzoSQ&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=4JjxTuQWmKL2b7bYQQzoSQ"}
 ]
 rest_deetz.each do |x|
     resty = Restaurant.new(x)

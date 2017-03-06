@@ -1,7 +1,7 @@
 <h1>Your Favorites</h1>
 
 <ul>
-	<% @favorites.each do |favorite| %>	
-		<a href="<%= favorite.mobile_url %>"></a><li><%= favorite.name %></li></ul></a>
+	<% @favorite_restaurants.each do |favorite_restaurant| %>	
+		<a href="<%= favorite_restaurants.yelp_page_url %>"></a><li><%= favorite_restaurants.name %></li></ul></a>
 	<% end %>	
 </ul>

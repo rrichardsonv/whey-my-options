@@ -23,7 +23,8 @@ module RestaurantsHelper
         :image_url => restaurant.image_url,
         :latitude => restaurant.location.coordinate.latitude,
         :longitude => restaurant.location.coordinate.longitude,
-        :address => restaurant.location.display_address.join(', ')
+        :address => restaurant.location.display_address.join(', '),
+        :yelp_page_url => restaurant.mobile_url
       }
       unless Restaurant.exists?(restaurant_info)
         memo_restaurant = Restaurant.new(restaurant_info)
