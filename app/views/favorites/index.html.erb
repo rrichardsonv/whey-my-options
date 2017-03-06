@@ -2,6 +2,8 @@
 
 <ul>
 	<% @favorite_restaurants.each do |favorite_restaurant| %>	
-		<a href="<%= favorite_restaurants.yelp_page_url %>"></a><li><%= favorite_restaurants.name %></li></ul></a>
+		<a href="<%= favorite_restaurant.yelp_page_url %>">
+			<li><%= favorite_restaurant.name %></li>
+		</a>
 	<% end %>	
 </ul>
