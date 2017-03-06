@@ -10,7 +10,6 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require turbolinks
 //= require jquery
 //= require jquery_ujs
 //= require jquery.mobile-1.4.5
@@ -23,7 +22,7 @@ $(document).ready(function() {
   // loginRegisterListener();
   // logoutListener();
   refillRestaurantsListener();
-
+  $("#tinderslide").jTinder();
 });
 
 

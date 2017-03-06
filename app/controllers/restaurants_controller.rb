@@ -9,13 +9,14 @@ class RestaurantsController < ApplicationController
         }
 
       }
-      # near_restaurants = get_restaurant_panes(user_location)
+      near_restaurants = get_restaurant_panes(user_location)
       # FOR TESTING SO YOU DON'T USE ALL THE API CALLS
-      near_restaurants = Restaurant.all
+      # near_restaurants = Restaurant.all
 
       render partial: 'index', layout: false, locals: {restaurants: near_restaurants} , status: :ok
     else
       @restaurants = Restaurant.all
+
     end
   end
 
