@@ -1,19 +1,13 @@
 class SessionsController < ApplicationController
+  include SessionsHelper
   def new
     #login page need to account for reg
   end
 
   def create
-    user_params = login_deets
-    user = User.find_by(email: user_params[:email])
-    if !!user
-
-      if user.authenticate(user_params[:password])
-        session[:user_id] = user.id
-        redirect_to restaurants_path
-      else
-        render nothing: true, status: :bad_request
-      end
+    if request.xhr?
+      set_user(login_deetz)
+      redirect_to restaurants_path
     else
       render nothing: true, status: :bad_request
     end
@@ -24,7 +18,7 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
-  def login_deets
-    params.require(:user).permit(:username, :password, :email)
+  def login_deetz
+    params.require(:id)
   end
 end

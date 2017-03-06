@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
   include RestaurantsHelper
   def index
-    if request.xhr?
+    if !!location_params
       user_location = {
         coords: {
           latitude: location_params[:lat],
@@ -16,11 +16,15 @@ class RestaurantsController < ApplicationController
       render partial: 'index', layout: false, locals: {restaurants: near_restaurants} , status: :ok
     else
       @restaurants = Restaurant.all
-      render :index
     end
   end
+
 private
   def location_params
-    params.require(:coords).permit(:lat, :long)
+    if params.has_key?(:coords)
+      params.require(:coords).permit(:lat, :long)
+    else
+      false
+    end
   end
 end
