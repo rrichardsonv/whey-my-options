@@ -17,7 +17,7 @@ module RestaurantsHelper
   def parse_restaurants(restaurant_data)
     restaurant_data.businesses.collect do |restaurant|
       restaurant_info = {
-        :name => restaurant.id,
+        :name => restaurant.name,
         :rating => restaurant.rating,
         :rating_count => restaurant.review_count,
         :image_url => restaurant.image_url,
