@@ -8,14 +8,11 @@ var facebookSetup = function(){
         appId: '1929445010619471',
         version: 'v2.7'
       });     
-      $('#loginbutton, #feedbutton').removeAttr('disabled');
       FB.getLoginStatus(updateStatusCallback);
   });
 };
-
-var updateStatusCallback = function(){
-  var uID = FB.getUserID();
-  if(uID != undefined){
+var ajaxFacebookLogin = function(fbUID){
+    var uID    = fbUID;
     var url    =  '/sessions' + "?&authenticity_token=" + encodeURIComponent(RAILS_AUTH_TOKEN);
 
     var method =  'POST';
@@ -31,5 +28,29 @@ var updateStatusCallback = function(){
         console.log('Error!');
       }
     })
+}
+
+var updateStatusCallback = function(){
+  var uID = FB.getUserID();
+  // debugger
+  console.log(uID);
+  if(uID != ""){
+    ajaxFacebookLogin(uID);
+  }else{
+    $('#login-button').removeClass('hidden')
+    startLoginListener();
   }
+};
+
+var startLoginListener = function(){
+  $('#login-button').on('click', function(){
+    FB.login(function(response){
+      if(response.authResponse){
+        console.log('welcome in!');
+        ajaxFacebookLogin(response.authResponse.userID);
+      }else{
+        console.log('sorry bad response');
+      }
+    });
+  })
 };
