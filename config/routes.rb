@@ -8,5 +8,5 @@ Rails.application.routes.draw do
 
   resources :sessions, except: [:update, :edit, :show, :index]
 
-  root 'sessions#new'
+  root 'restaurants#index'
 end

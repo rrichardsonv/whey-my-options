@@ -36,23 +36,29 @@
     <div id="status"></div>
   </div>
 <div id="navbar-container" data-role="footer">
-  <% if logged_in? %>
     <div data-role="navbar" id="navbar-id">
         <ul>
           <li>
-          <%= button_to "Favorites",user_favorites_path(@current_user), method: :get %>
+            <form method="get" action="/users/<%=1%>/favorites">
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+              <input class="fav-button" type="submit" name="Favorites">
+            </form>
           </li>
 
           <li>
-          <%= button_to "Home", restaurants_path %>
+            <form method="get" action="/restaurants">
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+              <input class="home-button" type="submit" name="Home">
+            </form>
           </li>
 
           <li> 
-          <%= button_to 'Destroy', { controller: :sessions, action: :destroy, id: @current_user.id }, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <form method="post" action="/sessions/<%=1 %>">
+                <%= hidden_field_tag "_method", "delete"  %>
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                <input class="logout-button" type="submit" name="Logout">
+            </form>
           </li>
-
-
         </ul>
       </div><!-- /navbar -->
-    <% end %>
 </div>
