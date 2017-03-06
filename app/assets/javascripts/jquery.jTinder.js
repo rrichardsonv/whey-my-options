@@ -82,10 +82,10 @@
 		next: function (like) {
 				if(like == true){
 					$.ajax({
-						url: 'users/favorites',
+						url: 'favorites',
 						type: 'post',
-						data: {restaurant_id: current_pane}
-					})
+						data: {favorite: {restaurant_id: current_pane}
+					}})
 					.done(function() {
 						console.log("success");
 					})
