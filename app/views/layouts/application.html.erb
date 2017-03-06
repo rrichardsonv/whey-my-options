@@ -2,33 +2,30 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <title>WayToEat</title>
     <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
+<<<<<<< HEAD
+=======
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
     <%= javascript_tag "var RAILS_AUTH_TOKEN = '#{form_authenticity_token}';" if protect_against_forgery? %>
 
     
+>>>>>>> 7d83faef5ab5653cd36c853ee2c2e142af8d30e0
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <title>WayToEat</title>
-    <script src="https://code.jquery.com/jquery-3.1.1.js"
-      integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
-      crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-        <!-- jTinder initialization script -->
-<!--     <script type="text/javascript" src="/js/main.js"></script> -->
+    <%= csrf_meta_tags %>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-    <!-- transform2d lib -->
 
 <body>
   <div data-role="page" id="page1">
     <div data-role="header" class="header">
-      <span id="title"><center><a style='text-decoration:none; color: black;'href="/">WayToEat</a></center></h1>
+      <span id="title"><center><a style='text-decoration:none; color: black;' href="/users">WayToEat</a></center></h1>
     </div>
-    
+
   <%= yield %>
 
 

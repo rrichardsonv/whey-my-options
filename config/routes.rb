@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   resources :users, only: :create do
     resources :favorites, except: [:show, :edit, :update, :new]
   end
