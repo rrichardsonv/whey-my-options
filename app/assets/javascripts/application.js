@@ -23,7 +23,7 @@ $(document).ready(function() {
   // loginRegisterListener();
   // logoutListener();
   refillRestaurantsListener();
-
+  $("#tinderslide").jTinder();
 });
 
 
