@@ -21,7 +21,6 @@
 		};
 
 
-
 	var container = null;
 	var panes = null;
 	var $that = null;
@@ -49,6 +48,26 @@
 			pane_count = panes.length;
 			current_pane = panes.length - 1;
 			$that = this;
+
+			var listenLike = function() {
+				$(".like").on('click', function(e){
+		    e.preventDefault()
+		    console.log('working')
+		    $that.like();
+		  	})
+			};
+
+		 var listenDislike = function() {
+			  $(".dislike").on('click', function(e){
+		    e.preventDefault()
+		    console.log('working')
+				$that.dislike();
+		  })
+		};
+
+		listenLike();
+		listenDislike();
+
 
 			$(element).bind('touchstart mousedown', this.handler);
 			$(element).bind('touchmove mousemove', this.handler);
